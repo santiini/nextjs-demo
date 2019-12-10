@@ -4,7 +4,8 @@
   "description": "a test demo about nextjs",
   "main": "index.js",
   "scripts": {
-    "dev": "next"
+    "dev": "next",
+    "eslint": "eslint pages  --fix --ext .tsx,.ts "
   },
   "keywords": [],
   "author": "",
@@ -13,10 +14,32 @@
     "express": "^4.17.1",
     "next": "^9.1.5",
     "react": "^16.12.0",
-    "react-dom": "^16.12.0"
+    "react-dom": "^16.12.0",
+    "typescript": "^3.7.3"
   },
   "devDependencies": {
     "@types/react": "^16.9.16",
-    "@types/react-dom": "^16.9.4"
+    "@types/react-dom": "^16.9.4",
+    "@typescript-eslint/eslint-plugin": "^2.11.0",
+    "@typescript-eslint/parser": "^2.11.0",
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "eslint-plugin-react": "^7.17.0",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{.ts,.tsx}": [
+      "npm run eslint",
+      "prettier .prettierrc.js --write",
+      "git add"
+    ]
   }
 }

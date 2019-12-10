@@ -1,0 +1,31 @@
+{
+  "eslint.enable": true, //是否开启vscode的eslint
+  "eslint.autoFixOnSave": true, //是否在保存的时候自动fix eslint
+  // eslint.options中可以通过configFile属性来执行eslint规范的绝对路径，默认会向上查找，在根路径中指定。
+  "eslint.options": {
+    //指定vscode的eslint所处理的文件的后缀
+    "extensions": [".js", ".vue", ".ts", ".tsx"]
+  },
+  // eslint.validate中必须通过{ language: XXX}的形式来指定typescript和typescriptreact
+  "eslint.validate": [
+    //确定校验准则
+    "javascript",
+    "javascriptreact",
+    {
+      "language": "html",
+      "autoFix": true
+    },
+    {
+      "language": "vue",
+      "autoFix": true
+    },
+    {
+      "language": "typescript",
+      "autoFix": true
+    },
+    {
+      "language": "typescriptreact",
+      "autoFix": true
+    }
+  ]
+}
