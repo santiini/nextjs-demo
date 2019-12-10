@@ -5,10 +5,19 @@
  */
 
 const withLess = require('@zeit/next-less');
+const lessToJS = require('less-vars-to-js');
+const fs = require('fs');
+const path = require('path');
+
+// 自定义的 less 变量: 经过less-vars-to-js将less文件的内容作为字符串接
+const themeVariables = lessToJS(
+  fs.readFileSync(path.resolve(__dirname, './assets/antd-custom.less'), 'utf8'),
+);
 
 module.exports = withLess({
   lessLoaderOptions: {
     javascriptEnabled: true,
+    modifyVars: themeVariables,
   },
   webpack: (config, {isServer}) => {
     if (isServer) {
