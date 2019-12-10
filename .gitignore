@@ -2,9 +2,12 @@
 
 # dependencies
 /node_modules
+/.next
 /.pnp
 .pnp.js
-
+.env
+.env.development
+.env.production
 # testing
 /coverage
 
