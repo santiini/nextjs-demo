@@ -1,6 +1,5 @@
 /** @format */
-import axios from 'axios';
-
+import fetch from 'isomorphic-unfetch';
 interface ProductProps {
   starts: string | number;
 }
@@ -19,8 +18,8 @@ const Product = (props: ProductProps) => {
     err - 渲染过程中的任何错误
  */
 Product.getInitialProps = async () => {
-  const res = await axios.get('https://api.github.com/repos/zeit/next.js');
-  const json = await res.data;
+  const res = await fetch('https://api.github.com/repos/zeit/next.js');
+  const json = await res.json();
   return {
     starts: json.stargazers_count,
   };
