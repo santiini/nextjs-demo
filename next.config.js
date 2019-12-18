@@ -15,6 +15,10 @@ const themeVariables = lessToJS(
 );
 
 module.exports = withLess({
+  // env 全局变量
+  env: {
+    ROOTDIR: __dirname,
+  },
   lessLoaderOptions: {
     javascriptEnabled: true,
     modifyVars: themeVariables,
